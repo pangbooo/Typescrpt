@@ -16,7 +16,7 @@ tsc hello.ts
 *TypeScript 只会进行静态检查，如果发现有错误，编译的时候就会报错。*
 
 ## 基础
-### 原始数据类型
+### 1.原始数据类型
 - 布尔值
 - 数值
 - 字符串
@@ -54,6 +54,38 @@ let num: number = u;
 ```
 
 ### 任意值 (Any)
-> 如果是一个普通类型，在赋值过程中改变类型是不被允许的：    
-> 但如果是 any 类型，则允许被赋值为任意类型。
+> - 如果是一个普通类型，在赋值过程中改变类型是不被允许的,*但如果是 any 类型，则允许被赋值为任意类型。*
+> - *声明一个变量为任意值之后，对它的任何操作，返回的内容的类型都是任意值。*
+> - 变量如果在声明的时候，未指定其类型，那么它会被识别为任意值类型：
+```javascript
+let somethig;
+//等价于：
+//let something: any;
+somethig = 'seven'
+somethig = 7;
+something.setName('Tom');
+```
+### 类型推论
+> 如果没有明确的指定类型，那么 TypeScript 会依照类型推论（Type Inference）的规则推断出一个类型。
+```javascript
+let myFavoriteNumber = 'seven';
+//等价于：
+//let myFavoriteNumber: string = 'seven';
+```
+### 联合类型
+> 联合类型（Union Types）表示取值可以为多种类型中的一种。
 
+### 对象的类型——接口
+> 在 TypeScript 中，我们使用接口（Interfaces）来定义对象的类型。
+
+### 数组的类型
+> 在 TypeScript 中，数组类型有多种定义方式，比较灵活。
+
+### 函数的类型
+
+### 类型断言
+> 类型断言（Type Assertion）可以用来手动指定一个值的类型。
+/2.Basic/assert.ts
+
+### 声明文件
+### 内置对象
