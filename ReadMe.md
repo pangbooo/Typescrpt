@@ -89,3 +89,19 @@ let myFavoriteNumber = 'seven';
 
 ### 声明文件
 ### 内置对象
+
+## 进阶
+### 类型别名
+```javascript
+type Name = string;
+type NameResolver = () => string;
+type NameorResolver = Name | NameResolver;
+
+function getName(n: NameorResolver): Name {
+    if (typeof n === 'string') {
+        return n;
+    } else {
+        return n();
+    }
+}
+```
