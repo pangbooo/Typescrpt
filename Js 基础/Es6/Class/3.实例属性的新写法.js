@@ -25,7 +25,7 @@ class IncreasingCounter {
     }
   }
 
-  //静态属性(定义在类上的属性，区别实例的属性)
+  //4.静态属性(定义在类上的属性，区别实例的属性)
   //old
   class Foo{}
   Foo.prop = 1
