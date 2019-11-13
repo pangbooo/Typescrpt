@@ -92,7 +92,7 @@ getJSON('./posts.json').then(function(json){
   console.log('error',error)
 })
 
-//Ex5: 个异步操作的结果是返回另一个异步操作。
+//Ex5: 一个异步操作的结果是返回另一个异步操作。
 const p1 = new Promise(function(resolve, reject){
   setTimeout(() => reject(new Error('fail')), 3000)
 });
