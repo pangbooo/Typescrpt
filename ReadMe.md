@@ -56,7 +56,7 @@ let num: number = u;
 ### 任意值 (Any)
 > - 如果是一个普通类型，在赋值过程中改变类型是不被允许的,*但如果是 any 类型，则允许被赋值为任意类型。*
 > - *声明一个变量为任意值之后，对它的任何操作，返回的内容的类型都是任意值。*
-> - 变量如果在声明的时候，未指定其类型，那么它会被识别为任意值类型：
+> - 变量如果在声明的时候(__声明了变量，却未赋值__)，未指定其类型，那么它会被识别为任意值类型,而完全不被类型检查：
 ```javascript
 let somethig;
 //等价于：
@@ -77,9 +77,61 @@ let myFavoriteNumber = 'seven';
 
 ### 对象的类型——接口
 > 在 TypeScript 中，我们使用接口（Interfaces）来定义对象的类型。
+__赋值的时候，变量的形状必须和接口的形状保持一致。__
+```javascript
+interface Person {
+    name: string,
+    age?: age, //可选属性
+    [propName: string]: any //任意属性
+    readonly id: number //只读属性 （第一次给对象赋值之后，不可重新赋值）
+}
+
+let tom: Person = {
+    name: 'tom',
+    gender: 'male
+}
+```
+__如果定义了任意属性，那么可选属性的值必须属于可选属性的子集__
 
 ### 数组的类型
 > 在 TypeScript 中，数组类型有多种定义方式，比较灵活。
+- 1. 「类型 + 方括号」
+```javascript
+let fibonacci: number[] = [1,2] //ok
+let fibonacci: number[] = [1,2,'3'] // Type 'string' is not assignable to type 'number'.
+```
+
+- 2. 数组泛型
+```javascript
+let fibonacci: Array<number> = [1,2]
+```
+
+- 3. 类数组
+```javascript
+interface NumberArray {
+    [index: number]: number
+}
+let fibonacci: NumberArray = [1,2];
+```
+不常用。不过有一种情况例外，那就是它常用来表示类数组。
+```javascript
+function sum() {
+    let args: {
+        [index: number]: number;
+        length: number;
+        callee: Function;
+    } = arguments;
+
+    //arguments 就算一个类数组， 不可以直接用 number[]表示
+}
+
+//or 
+function sum(){
+    let args: IArguments = arguments
+    //IArguments 是 ts内置对象
+}
+```
+
 
 ### 函数的类型
 
