@@ -1,17 +1,20 @@
-//1. <Type>value
-//2. value as Type 
-//在 tsx 语法（React 的 jsx 语法的 ts 版）中必须用后一种。
-    
+//1. value as Type 
+//2. <Type>value
+//在 tsx 语法（React 的 jsx 语法的 ts 版）中必须(1)
 
-function getLength(something: string | number): number {
-    if((<string>something).length){
-        return (<string>something).length
-    }else {
-        something.toString().length;
-    }
+interface Cat {
+    name: string;
+    run(): void;
 }
 
-//类型断言不是类型转换，断言成一个联合类型中不存在的类型是不允许的：
-function toBoolean(something: string | number): boolean {
-    return <boolean>something;
+interface Fish {
+    name: string;
+    swim(): void;
+}
+
+function isFish(animal: Cat | Fish){
+    if(typeof (animal as Fish).swim === 'function'){
+        return true
+    }
+    return false;
 }

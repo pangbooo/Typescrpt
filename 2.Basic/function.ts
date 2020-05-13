@@ -22,7 +22,10 @@ mySearch = function(source: string, subString: string) {
     return source.search(subString) !== -1;
 }
 
-//4.重载
+//4. 可选参数
+//可选参数后面不允许再出现必需参数了
+
+//5.重载
 //重载允许一个函数接受不同数量或类型的参数时，作出不同的处理。
 function reverse(x: number): number;
 function reverse(x: string): string;

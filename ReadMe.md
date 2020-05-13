@@ -74,6 +74,19 @@ let myFavoriteNumber = 'seven';
 ```
 ### 联合类型
 > 联合类型（Union Types）表示取值可以为多种类型中的一种。
+当 TypeScript 不确定一个联合类型的变量到底是哪个类型的时候，我们 __只能访问此联合类型的所有类型里共有的属性或方法__
+```javascript
+function getLength(something: string | number): number{
+    return something.length
+}
+
+// index.ts(2,22): error TS2339: Property 'length' does not exist on type 'string | number'.
+//   Property 'length' does not exist on type 'number'.
+
+function getLength(something: string | number): string{
+    return something.toString()
+}
+```
 
 ### 对象的类型——接口
 > 在 TypeScript 中，我们使用接口（Interfaces）来定义对象的类型。
@@ -134,10 +147,11 @@ function sum(){
 
 
 ### 函数的类型
+https://github.com/pangbooo/Typescrpt/blob/master/2.Basic/function.ts
 
 ### 类型断言
 > 类型断言（Type Assertion）可以用来手动指定一个值的类型。
-/2.Basic/assert.ts
+https://github.com/pangbooo/Typescrpt/blob/master/2.Basic/assert.ts
 
 ### 声明文件
 ### 内置对象
