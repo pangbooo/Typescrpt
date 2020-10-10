@@ -6,11 +6,18 @@ function sum(x: number, y: number): number{
 //输入多余或者少于的参数，是不允许的。
 
 //2.函数表达式
-
+// right case:
 let mySum: (x: number, y: number) => number = function(x: number, y:number) {
-    return x + y
+    return x + y;
 }
 // => 是Typescript中表示函数定义的， 和ES6中的箭头函数不同。
+
+// error case：
+let mySum2 = function(x: number, y: number): number {
+    return x + y;
+}
+//这是可以通过编译的，不过事实上，上面的代码只对等号右侧的匿名函数进行了类型定义，而等号左边的 mySum，是通过赋值操作进行类型推论而推断出来的。
+//如果需要我们手动给 mySum2 添加类型，则应该按照right case
 
 //3. 接口定义函数的形状
 interface Seachrfunc {
