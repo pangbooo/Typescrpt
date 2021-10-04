@@ -1,0 +1,59 @@
+{
+    /**
+        tscofig.json 是ts文件的编译器的配置文件。ts编译器可以根据配置项进行编译
+
+        配置项目：
+            1. include - 用来指定那些年文件需要编译
+                ** - 表示任意文件路径
+                *  - 表示任意文件
+
+            2. exclude - 用来表示不需要编译的文件路径
+                默认值 - ['node-modules', 'bower_components', 'jspm_packages']
+
+            3. extends - 定义被继承的配置文件
+            4. files - 所有需要编译的文件数组
+            5.compolerOptions
+                target - 用来指定ts被编译为的js版本
+                module - 指定要使用的模块化的规范 
+                lib - 项目中要使用的库
+                outDir - ts 编译后文件存放目录
+                outFile - 可以设置编译后的文件为指定的文件（全局作用域中的代码合并为一个文件）
+                allowJs - 是否对js文件进行编译 （true | false） 
+                checkJs - 是否检查js代码符合代码规范
+                removeComments - 是否删除ts文件的注视代码
+                noEmit - 是否不生成编译后的文件
+                noEmitOnError - 错误时，是否不生成编译后的文件
+
+                //语法检查相关
+                alwaysStrict - 用来设置编译后的文件是否使用严格模式 （模块化的文件，默认使用严格模式）
+                noImplicitAny - 不允许隐式any类型出现
+                noImplicitThis - 不允许隐式this出现
+                strictNullChecks - 开启空变量检查
+                strict - 所有严格检查的总开关 (开启相当于 strict相关的检查都开启)
+
+    **/ 
+    
+    "include": [
+        "./src/**/*"
+    ],
+    "exclude": [
+        "./src/hello/**/*"
+    ],
+    "compilerOptions": {
+        "target": "ES3",
+        "module": "es2015",
+        "outDir": "./dist",
+        // "outFile": "./dist/app.js",
+        "allowJs": true,
+        "checkJs": true,
+        "removeComments": true,
+        "noEmit": false,
+        "noEmitOnError": true,
+        "strict": true,
+        "alwaysStrict": false,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "strick": true
+    }
+}
