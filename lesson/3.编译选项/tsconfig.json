@@ -54,6 +54,5 @@
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
-        "strick": true
     }
 }
