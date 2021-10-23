@@ -9,7 +9,8 @@ module.exports = {
         clean: true, // 先清除dist文件，再输出
         environment: {
             //设置webpack编译文件 最外层不实用箭头函数
-            arrowFunction: false
+            arrowFunction: false,
+            const: false,
         }
     },
     module: {
