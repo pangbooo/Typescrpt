@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <button>测试1</button>
+    <button>测试2</button>
+    <button>测试3</button>
+
+<script>
+    const btns = document.getElementsByTagName('button');
+
+    //1. 
+    // for(var i = 0, length = btns.length; i < length; i++) {
+    //     var btn = btns[i];
+    //     btn.index = i;
+    //     btn.onclick = function() {
+    //         console.log(this.index)
+    //     }
+    // }
+
+    //2. 闭包
+    for(var i = 0, length = btns.length; i < length; i++) {
+        (function(i){
+            btns[i].onclick = function() {
+                console.log(i);
+            }
+        })(i);
+    }
+
+    // function fn() {
+    //     var a = 1;
+    //     function fn1() {
+    //         a++;
+    //         console.log(a)
+    //     }
+    //     function fn2() {
+    //         a--;
+    //         console.log(a)
+    //     }
+
+    //     return fn2;
+    // }
+
+    // var f = fn();
+    // f();
+    // f();
+
+    // function fn1() {
+    //     var a = 1;
+    //     var b = 2;
+    //     function fn2() {
+    //         console.log(a)
+    //     }
+    //     return fn2;
+
+    // }
+
+    // var f = fn1();
+
+    
+    
+</script>
+</body>
+</html>
