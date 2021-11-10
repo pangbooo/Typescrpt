@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<script>
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+Person.prototype.setName = function(name) {
+    this.name = name;
+}
+
+function Student(name, age, price) {
+    Person.call(this, name, age, price)
+}
+Student.prototype = new Person();
+Student.prototype.construtor = Student;
+Student.prototype.setPrice = function(price) {
+    this.price = price;
+}
+
+var s = new Student('a', 20, 1000);
+s.setName('b');
+s.setPrice(2000);
+console.log(s)
+    
+</script>
+</body>
+</html>
